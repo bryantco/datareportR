@@ -1,0 +1,29 @@
+---
+title: "Data Summary Report"
+date: "`r Sys.Date()`"
+output: html_document
+knit:
+  opts_chunk:
+    echo: FALSE
+    message: FALSE
+    warning: FALSE
+    error: FALSE
+    include: TRUE
+---
+
+
+```{r, setup}
+library(nycflights13)
+library(skimr)
+```
+
+
+```{r}
+data(flights)
+```
+
+
+```{r}
+flights |> 
+  skim()
+```

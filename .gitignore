@@ -2,6 +2,7 @@
 **/input
 **/output
 **/data
+**/*files
 
 # Data file extensions
 **.csv
@@ -14,6 +15,7 @@
 **.log
 **.parquet
 **.sqlite
+**.r
 
 # Output file extensions
 **.pdf
