@@ -15,7 +15,7 @@
 **.log
 **.parquet
 **.sqlite
-**.r
+**.vdoc**
 
 # Output file extensions
 **.pdf
