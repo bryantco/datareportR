@@ -9,21 +9,15 @@ knit:
     warning: FALSE
     error: FALSE
     include: TRUE
+params:
+  df_input: NULL
 ---
 
 
 ```{r, setup}
-library(nycflights13)
 library(skimr)
 ```
-
-
 ```{r}
-data(flights)
-```
-
-
-```{r}
-flights |> 
+df_input |> 
   skim()
 ```

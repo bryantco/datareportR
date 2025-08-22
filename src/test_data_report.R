@@ -4,7 +4,10 @@ if (interactive()) {
 } 
 
 library(rmarkdown)
+library(nycflights13)
 
-rmarkdown::render(
-  input = "data_report.Rmd"
-)
+source("R/render_data_report.R")
+
+flights = nycflights13::flights
+
+render_data_report(df_input = flights)
