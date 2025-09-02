@@ -14,14 +14,13 @@ params:
   df_input_name: NULL
 ---
 
-
 ```{r, setup}
 library(skimr)
-
 df_input = params$df_input
 df_input_name = params$df_input_name
 ```
+
 ```{r}
-df_input |> 
+df_input %>%
   skim(.data_name = df_input_name)
 ```
