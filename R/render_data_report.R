@@ -1,11 +1,14 @@
 library(tidyverse)
+library(assertr)
 
 render_data_report = function(
-  df_input
+  df_input = NULL,
+  save_report_to_disk = TRUE
 ) {
 
   df_input_name = deparse(substitute(df_input))
 
+  # Generate RMarkdown report ----
   report_header_code = c(
     "---",
     'title: "Data Summary Report"',
@@ -41,6 +44,7 @@ render_data_report = function(
   report_all_code = c(report_header_code, report_body_code)
   writeLines(report_all_code, "data_report.Rmd")
 
+  # Render report ----
   rmarkdown::render(
     input = "data_report.Rmd",
     params = list(
@@ -48,4 +52,10 @@ render_data_report = function(
       df_input_name = df_input_name
     )
   )
+
+  # Save report to disk or delete according to save_to_disk bool ----
+  if (!save_report_to_disk) {
+    report_removed = file.remove("data_report.Rmd")
+    assertr::verify(report_removed, function(x) x == TRUE)
+  }
 }

@@ -10,4 +10,7 @@ source("R/render_data_report.R")
 
 flights = nycflights13::flights
 
-render_data_report(df_input = flights)
+render_data_report(
+  df_input = flights,
+  save_report_to_disk = TRUE
+)
