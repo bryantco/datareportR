@@ -3,7 +3,8 @@ library(assertr)
 
 render_data_report = function(
   df_input = NULL,
-  save_report_to_disk = TRUE
+  save_report_to_disk = TRUE,
+  df_input_old = NULL
 ) {
 
   df_input_name = deparse(substitute(df_input))
@@ -17,6 +18,7 @@ render_data_report = function(
     "params:",
     "  df_input: NULL",
     "  df_input_name: NULL",
+    "  df_input_old: NULL",
     "---",
     ""
   )
@@ -25,6 +27,7 @@ render_data_report = function(
     "```{r setup, include=FALSE}",
     "library(skimr)",
     "library(tidyverse)",
+    "",
     "knitr::opts_chunk$set(",
     "  echo = FALSE,",
     "  message = FALSE,",
@@ -34,11 +37,18 @@ render_data_report = function(
     ")",
     "df_input = params$df_input",
     "df_input_name = params$df_input_name",
+    "df_input_old = params$df_input_old",
     "```",
     "",
+    "# Data Overview",
     "```{r}",
     "df_input %>%",
     "  skim(.data_name = df_input_name)",
+    "```",
+    "",
+    "# Summary of Changes from Previous Version",
+    "```{r}",
+    "diffdf::diffdf(df_input, df_input_old)",
     "```"
   )
 
@@ -54,7 +64,8 @@ render_data_report = function(
     input = "data_report.Rmd",
     params = list(
       df_input = df_input,
-      df_input_name = df_input_name
+      df_input_name = df_input_name,
+      df_input_old = df_input_old
     )
   )
 

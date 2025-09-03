@@ -5,11 +5,13 @@ output: html_document
 params:
   df_input: NULL
   df_input_name: NULL
+  df_input_old: NULL
 ---
 
 ```{r setup, include=FALSE}
 library(skimr)
 library(tidyverse)
+
 knitr::opts_chunk$set(
   echo = FALSE,
   message = FALSE,
@@ -19,9 +21,16 @@ knitr::opts_chunk$set(
 )
 df_input = params$df_input
 df_input_name = params$df_input_name
+df_input_old = params$df_input_old
 ```
 
+# Data Overview
 ```{r}
 df_input %>%
   skim(.data_name = df_input_name)
+```
+
+# Summary of Changes from Previous Version
+```{r}
+diffdf::diffdf(df_input, df_input_old)
 ```
