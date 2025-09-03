@@ -43,6 +43,10 @@ render_data_report = function(
   )
 
   report_all_code = c(report_header_code, report_body_code)
+  # Throw a warning to the user if the data report already exists
+  if (file.exists("data_report.Rmd")) {
+    warning("Existing copy of data_report.Rmd overwritten.")
+  }
   writeLines(report_all_code, "data_report.Rmd")
 
   # Render report ----
