@@ -1,7 +1,6 @@
 # Subfolders with data
 **/input
 **/output
-**/data
 **/*files
 
 # Data file extensions
