@@ -10,4 +10,5 @@ render_data_report(
   df_input_old = flights
 )
 
-tinytest::expect_equal(1+1, 2)
+report_removed = file.remove("data_report.Rmd")
+expect_true(report_removed)
