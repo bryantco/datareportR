@@ -1,5 +1,7 @@
+library(tinytest)
+
 flights = nycflights13::flights
-# flights_permuted = datareportR::flights_permuted
+
 
 render_data_report(
   df_input = flights,

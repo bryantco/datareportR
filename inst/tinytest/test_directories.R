@@ -1,9 +1,3 @@
-# Test 
-# if (interactive()) {
-#   setwd(gsub("src(.*)?", "", rstudioapi::getSourceEditorContext()$path)) 
-# } 
-
-library(nycflights13)
 library(tinytest)
 
 # Test that rmd is saved in a directory if the directory exists
