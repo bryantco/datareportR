@@ -1,20 +1,18 @@
-library(magrittr)
-library(assertr)
-library(rmarkdown)
-library(skimr)
-library(diffdf)
-
 #' Title
 #'
 #' @param df_input 
 #' @param save_report_to_disk 
 #' @param save_rmd_dir 
 #' @param df_input_old 
+#' @importFrom skimr skim
+#' @importFrom diffdf diffdf
+#' @importFrom assertr verify
+#' @importFrom rmarkdown render
+#' @importFrom magrittr %>%
 #'
-#' @returns
+#' @returns An output RMarkdown report with the data summary.
 #' @export
 #'
-#' @examples
 render_data_report = function(
   df_input = NULL,
   save_report_to_disk = TRUE,
