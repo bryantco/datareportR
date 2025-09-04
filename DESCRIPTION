@@ -11,3 +11,4 @@ RoxygenNote: 7.0.0
 Depends: 
     R (>= 3.5)
 LazyData: true
+Suggests: tinytest
