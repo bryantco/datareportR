@@ -10,7 +10,7 @@ params:
 
 ```{r setup, include=FALSE}
 library(skimr)
-library(tidyverse)
+library(magrittr)
 
 knitr::opts_chunk$set(
   echo = FALSE,
