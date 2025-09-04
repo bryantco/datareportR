@@ -10,5 +10,8 @@ render_data_report(
   df_input_old = flights
 )
 
-report_removed = file.remove("data_report.Rmd")
-expect_true(report_removed)
+report_rmd_removed = file.remove("data_report.Rmd")
+expect_true(report_rmd_removed)
+
+report_html_removed = file.remove("data_report.html")
+expect_true(report_html_removed)
