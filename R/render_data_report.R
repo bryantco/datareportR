@@ -16,13 +16,18 @@
 render_data_report = function(
   df_input = NULL,
   save_report_to_disk = TRUE,
+  df_input_old = NULL,
   save_rmd_dir = getwd(),
-  df_input_old = NULL
+  save_html_dir = getwd()
 ) {
 
   # Sanity checks ----
   # Check that directories exist; throw a warning if not
-  if (!dir.exists(save_rmd_dir)) { stop ("Error! Directory to save rmd to does not exist. Please create the directory.") }
+  if (save_report_to_disk & !dir.exists(save_rmd_dir)) { 
+    stop ("Error! Directory to save rmd to does not exist. Please create the directory.") 
+  }
+
+  if (!dir.exists(save_html_dir)) {stop ("Error! Directory to save output HTML report to does not exist. Please create the directory.")  }
 
   df_input_name = deparse(substitute(df_input))
 
@@ -82,6 +87,7 @@ render_data_report = function(
   # Render report ----
   rmarkdown::render(
     input = rmd_path,
+    output_dir = save_html_dir,
     params = list(
       df_input = df_input,
       df_input_name = df_input_name,

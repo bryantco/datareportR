@@ -7,8 +7,8 @@ flights_permuted = datareportR::flights_permuted
 render_data_report(
   df_input = flights,
   save_report_to_disk = TRUE,
-  save_rmd_dir = "../../data/",
-  df_input_old = flights_permuted
+  df_input_old = flights_permuted,
+  save_rmd_dir = "../../data/"
 )
 
 expect_true(file.exists("../../data/data_report.Rmd"))
