@@ -1,5 +1,8 @@
-library(tidyverse)
+library(magrittr)
 library(assertr)
+library(rmarkdown)
+library(skimr)
+library(diffdf)
 
 render_data_report = function(
   df_input = NULL,
@@ -26,7 +29,7 @@ render_data_report = function(
   report_body_code = c(
     "```{r setup, include=FALSE}",
     "library(skimr)",
-    "library(tidyverse)",
+    "library(magrittr)",
     "",
     "knitr::opts_chunk$set(",
     "  echo = FALSE,",
