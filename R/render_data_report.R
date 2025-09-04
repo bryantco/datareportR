@@ -18,7 +18,9 @@ render_data_report = function(
   save_report_to_disk = TRUE,
   df_input_old = NULL,
   save_rmd_dir = getwd(),
-  save_html_dir = getwd()
+  save_html_dir = getwd(),
+  include_skim = TRUE,
+  include_diffdf = TRUE
 ) {
 
   # Sanity checks ----
@@ -45,7 +47,7 @@ render_data_report = function(
     ""
   )
 
-  report_body_code = c(
+  report_setup_code = c(
     "```{r setup, include=FALSE}",
     "library(skimr)",
     "library(magrittr)",
@@ -60,18 +62,38 @@ render_data_report = function(
     "df_input = params$df_input",
     "df_input_name = params$df_input_name",
     "df_input_old = params$df_input_old",
-    "```",
-    "",
-    "# Data Overview",
-    "```{r}",
-    "df_input %>%",
-    "  skim(.data_name = df_input_name)",
-    "```",
-    "",
-    "# Summary of Changes from Previous Version",
-    "```{r}",
-    "diffdf::diffdf(df_input, df_input_old)",
     "```"
+  )
+
+  if (include_skim) {
+    report_skimr_code = c(
+      "",
+      "# Data Overview",
+      "```{r}",
+      "df_input %>%",
+      "  skim(.data_name = df_input_name)",
+      "```"
+    )
+  } else {
+    report_skimr_code = c("")
+  }
+
+  if (include_diffdf) {
+    report_diffdf_code = c(
+      "",
+      "# Summary of Changes from Previous Version",
+      "```{r}",
+      "diffdf::diffdf(df_input, df_input_old)",
+      "```"
+    )
+  } else {
+    report_diffdf_code = c("")
+  }
+
+  report_body_code = c(
+    report_setup_code,
+    report_skimr_code,
+    report_diffdf_code
   )
 
   report_all_code = c(report_header_code, report_body_code)
