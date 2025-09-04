@@ -11,4 +11,11 @@ RoxygenNote: 7.0.0
 Depends: 
     R (>= 3.5)
 LazyData: true
-Suggests: tinytest
+Suggests: 
+    magrittr,
+    tinytest
+Imports: 
+    assertr,
+    diffdf,
+    rmarkdown,
+    skimr
