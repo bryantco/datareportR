@@ -26,11 +26,13 @@ render_data_report = function(
   # Sanity checks ----
   # Check that directories exist; throw a warning if not
   if (save_report_to_disk & !dir.exists(save_rmd_dir)) { 
-    stop ("Error! Directory to save rmd to does not exist. Please create the directory.") 
+    stop ("Directory to save rmd to does not exist. Please create the directory.") 
   }
 
-  if (!dir.exists(save_html_dir)) {stop ("Error! Directory to save output HTML report to does not exist. Please create the directory.")  }
+  if (!dir.exists(save_html_dir)) { stop ("Directory to save output HTML report to does not exist. Please create the directory.")  }
 
+  # Check that at least one of include_skim and include_diffdf is TRUE
+  if (!(include_skim | include_diffdf)) { stop("At least one of include_skim and include_diffdf must be specified for a non-empty report. Respecify these parameters.") }
   df_input_name = deparse(substitute(df_input))
 
   # Generate RMarkdown report ----
