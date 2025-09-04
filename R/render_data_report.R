@@ -7,8 +7,13 @@ library(diffdf)
 render_data_report = function(
   df_input = NULL,
   save_report_to_disk = TRUE,
+  save_rmd_dir = getwd(),
   df_input_old = NULL
 ) {
+
+  # Sanity checks ----
+  # Check that directories exist; throw a warning if not
+  if (!dir.exists(save_rmd_dir)) { stop ("Error! Directory to save rmd to does not exist. Please create the directory.") }
 
   df_input_name = deparse(substitute(df_input))
 
@@ -56,15 +61,18 @@ render_data_report = function(
   )
 
   report_all_code = c(report_header_code, report_body_code)
+
+  # Store temp report on disk ----
   # Throw a warning to the user if the data report already exists
-  if (file.exists("data_report.Rmd")) {
+  rmd_path = paste0(save_rmd_dir, "/", "data_report.Rmd")
+  if (file.exists(rmd_path)) {
     warning("Existing copy of data_report.Rmd overwritten.")
   }
-  writeLines(report_all_code, "data_report.Rmd")
+  writeLines(report_all_code, rmd_path)
 
   # Render report ----
   rmarkdown::render(
-    input = "data_report.Rmd",
+    input = rmd_path,
     params = list(
       df_input = df_input,
       df_input_name = df_input_name,
@@ -74,7 +82,7 @@ render_data_report = function(
 
   # Save report to disk or delete according to save_to_disk bool ----
   if (!save_report_to_disk) {
-    report_removed = file.remove("data_report.Rmd")
+    report_removed = file.remove(rmd_path)
     assertr::verify(report_removed, function(x) x == TRUE)
   }
 }
