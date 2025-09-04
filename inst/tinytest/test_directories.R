@@ -8,7 +8,7 @@ library(tinytest)
 
 # Test that rmd is saved in a directory if the directory exists
 flights = nycflights13::flights
-load("../../data/flights_permuted.rda")
+flights_permuted = datareportR::flights_permuted
 
 render_data_report(
   df_input = flights,
