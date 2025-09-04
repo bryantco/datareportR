@@ -12,10 +12,10 @@ Depends:
     R (>= 3.5)
 LazyData: true
 Suggests: 
-    magrittr,
     tinytest
 Imports: 
     assertr,
     diffdf,
     rmarkdown,
-    skimr
+    skimr,
+    magrittr
