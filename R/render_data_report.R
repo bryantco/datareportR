@@ -121,7 +121,6 @@ render_data_report = function(
 
   # Save report to disk or delete according to save_to_disk bool ----
   if (!save_report_to_disk) {
-    print("got here")
     report_removed = file.remove(rmd_path)
     stopifnot(report_removed)
   }
