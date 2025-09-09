@@ -3,6 +3,8 @@ library(bench)
 library(tictoc)
 library(tidyverse)
 
+set.seed(12345)
+
 # Helper function to create a simple data.frame of the specified dimensions
 create_df = function(rows, cols) {
   as.data.frame(setNames(
@@ -51,3 +53,4 @@ ggplot(results_plot) +
   geom_line(aes(x = rows, y = mean_time, color = as.factor(cols))) + 
   labs(color = "Number of columns")
  
+ggsave("_assets/benchmark_results.png", width = 10, height = 6)
