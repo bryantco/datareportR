@@ -10,7 +10,6 @@
 #'
 #' @importFrom skimr skim
 #' @importFrom diffdf diffdf
-#' @importFrom assertr verify
 #' @importFrom rmarkdown render
 #'
 #' @returns An output RMarkdown report with the data summary.
