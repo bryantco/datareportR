@@ -3,6 +3,5 @@
 export(render_data_report)
 importFrom(assertr,verify)
 importFrom(diffdf,diffdf)
-importFrom(magrittr,"%>%")
 importFrom(rmarkdown,render)
 importFrom(skimr,skim)

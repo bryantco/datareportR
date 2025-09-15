@@ -12,7 +12,6 @@
 #' @importFrom diffdf diffdf
 #' @importFrom assertr verify
 #' @importFrom rmarkdown render
-#' @importFrom magrittr %>%
 #'
 #' @returns An output RMarkdown report with the data summary.
 #' @export

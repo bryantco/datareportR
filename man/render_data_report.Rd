@@ -7,8 +7,11 @@
 render_data_report(
   df_input = NULL,
   save_report_to_disk = TRUE,
+  df_input_old = NULL,
   save_rmd_dir = getwd(),
-  df_input_old = NULL
+  save_html_dir = getwd(),
+  include_skim = TRUE,
+  include_diffdf = TRUE
 )
 }
 \arguments{
@@ -16,9 +19,15 @@ render_data_report(
 
 \item{save_report_to_disk}{}
 
+\item{df_input_old}{}
+
 \item{save_rmd_dir}{}
 
-\item{df_input_old}{}
+\item{save_html_dir}{}
+
+\item{include_skim}{}
+
+\item{include_diffdf}{}
 }
 \value{
 An output RMarkdown report with the data summary.
