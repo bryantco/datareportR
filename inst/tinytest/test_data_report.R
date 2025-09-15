@@ -1,4 +1,5 @@
 library(tinytest)
+library(datareportR)
 
 flights = nycflights13::flights
 flights_permuted = datareportR::flights_permuted

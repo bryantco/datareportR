@@ -1,4 +1,5 @@
 library(tinytest)
+library(datareportR)
 
 # Test that rmd is saved in a directory if the directory exists
 flights = nycflights13::flights

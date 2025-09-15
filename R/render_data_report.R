@@ -3,7 +3,11 @@
 #' @param df_input 
 #' @param save_report_to_disk 
 #' @param save_rmd_dir 
+#' @param save_html_dir 
+#' @param include_skim 
+#' @param include_diffdf 
 #' @param df_input_old 
+#'
 #' @importFrom skimr skim
 #' @importFrom diffdf diffdf
 #' @importFrom assertr verify
@@ -72,8 +76,7 @@ render_data_report = function(
       "",
       "# Data Overview",
       "```{r}",
-      "df_input %>%",
-      "  skim(.data_name = df_input_name)",
+      "skimr::skim(df_input, .data_name = df_input_name)",
       "```"
     )
   } else {
