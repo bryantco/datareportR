@@ -3,11 +3,12 @@ Title: Data Summary Reports in R
 Version: 0.1
 Authors@R: 
     person("Bryant", "Cong", , "bryant.bcp@gmail.com", role = c("aut", "cre"))
-Description: This package creates an RMarkdown data report in HTML with two components: a summary of 
-an input dataset using the `skim` function from the `skimr` package, and a diff of the dataset using the
-`diffdf` function from the `diffdf` package. The package aims to be as customizable as possible, with 
-options including but not limited to allowing the user to save the HTML or RMarkdown report to disk and
-which report components to include.
+Description: This package creates an RMarkdown data report in HTML with two components: 
+   a summary of an input dataset using the `skim` function from the `skimr` package, 
+   and a diff of the dataset using the `diffdf` function from the `diffdf` package. 
+   The package aims to be as customizable as possible, with options including 
+   but not limited to allowing the user to save the HTML or RMarkdown report to 
+   disk and which report components to include.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
