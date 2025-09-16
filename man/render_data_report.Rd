@@ -15,19 +15,22 @@ render_data_report(
 )
 }
 \arguments{
-\item{df_input}{}
+\item{df_input}{data.frame or tibble. Input dataset to generate the summary report on.}
 
-\item{save_report_to_disk}{}
+\item{save_report_to_disk}{boolean. TRUE to save the .Rmd file to disk at the specified
+\code{save_rmd_dir} directory, FALSE to remove the generated .Rmd file at runtime.}
 
-\item{df_input_old}{}
+\item{df_input_old}{data.frame or tibble. Old input dataset to call diffdf::diffdf() on.}
 
-\item{save_rmd_dir}{}
+\item{save_rmd_dir}{character. Path to save the .Rmd file to disk.}
 
-\item{save_html_dir}{}
+\item{save_html_dir}{character. Path to save the .html output file to disk.}
 
-\item{include_skim}{}
+\item{include_skim}{boolean. TRUE to include the data summary with skimr::skim() in the
+report. FALSE to exclude.}
 
-\item{include_diffdf}{}
+\item{include_diffdf}{boolean. TRUE to include the data diff with diffdf::diffdf() in the report.
+FALSE to exclude.}
 }
 \value{
 An output RMarkdown report with the data summary.

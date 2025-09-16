@@ -1,12 +1,15 @@
 #' Title
 #'
-#' @param df_input 
-#' @param save_report_to_disk 
-#' @param save_rmd_dir 
-#' @param save_html_dir 
-#' @param include_skim 
-#' @param include_diffdf 
-#' @param df_input_old 
+#' @param df_input data.frame or tibble. Input dataset to generate the summary report on.
+#' @param save_report_to_disk boolean. TRUE to save the .Rmd file to disk at the specified 
+#' `save_rmd_dir` directory, FALSE to remove the generated .Rmd file at runtime.
+#' @param save_rmd_dir character. Path to save the .Rmd file to disk.
+#' @param save_html_dir character. Path to save the .html output file to disk.
+#' @param include_skim boolean. TRUE to include the data summary with skimr::skim() in the 
+#' report. FALSE to exclude.
+#' @param include_diffdf boolean. TRUE to include the data diff with diffdf::diffdf() in the report.
+#' FALSE to exclude.
+#' @param df_input_old data.frame or tibble. Old input dataset to call diffdf::diffdf() on. 
 #'
 #' @importFrom skimr skim
 #' @importFrom diffdf diffdf
