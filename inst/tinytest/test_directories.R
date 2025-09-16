@@ -9,8 +9,8 @@ render_data_report(
   df_input = flights,
   save_report_to_disk = TRUE,
   df_input_old = flights_permuted,
-  save_rmd_dir = "../../data/",
-  save_html_dir = "../../data/"
+  save_rmd_dir = getwd(),
+  save_html_dir = getwd()
 )
 
 # Try rendering for a directory that doesn't exist
@@ -19,16 +19,16 @@ expect_error(
     df_input = flights,
     save_report_to_disk = TRUE,
     df_input_old = flights_permuted,
-    save_rmd_dir = "../../data/",
+    save_rmd_dir = getwd(),
     save_html_dir = "output/"
   ),
   pattern = "Directory to save output HTML"
 )
 
-expect_true(file.exists("../../data/data_report.Rmd"))
+expect_true(file.exists("data_report.Rmd"))
 
-report_rmd_removed = file.remove("../../data/data_report.Rmd")
+report_rmd_removed = file.remove("data_report.Rmd")
 expect_true(report_rmd_removed)
 
-report_html_removed = file.remove("../../data/data_report.html")
+report_html_removed = file.remove("data_report.html")
 expect_true(report_html_removed)
