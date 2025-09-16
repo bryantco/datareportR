@@ -19,7 +19,7 @@
 #' @export
 #'
 render_data_report = function(
-  df_input = NULL,
+  df_input,
   save_report_to_disk = TRUE,
   df_input_old = NULL,
   save_rmd_dir = getwd(),
@@ -29,6 +29,20 @@ render_data_report = function(
 ) {
 
   # Sanity checks ----
+  # Can't have a null df_input
+  if (is.null(df_input)) {
+    stop("Input dataframe not found. Please update the df_input argument to point it to the data you want to summarize.")
+  }
+
+  # Either include_skim or include_diffdf must be TRUE
+  if (!include_skim & !include_diffdf) {
+    stop("Either include_skim or include_diffdf must be TRUE. Update these parameters.")
+  }
+
+  # Old df must be specified if include_skim = TRUE
+  if (is.null(df_input_old) & include_diffdf) {
+    stop("Old data to diff not specified. Please update the df_input_old argument to point it to the old dataset or change include_diffdf to FALSE.")
+  }
   # Check that directories exist; throw a warning if not
   if (save_report_to_disk & !dir.exists(save_rmd_dir)) { 
     stop ("Directory to save rmd to does not exist. Please create the directory.") 
