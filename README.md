@@ -14,7 +14,9 @@ input data and outputs a "data report" as an HTML document. Under the hood, it u
 
 **datareportR** can be installed from this repository:
 
-`remotes::install_github("bryantco/datareportR")`
+```r
+remotes::install_github("bryantco/datareportR")
+```
 
 # Examples
 
