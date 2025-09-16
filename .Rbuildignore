@@ -6,3 +6,4 @@
 ^benchmarks/
 SCRATCH/
 ^_assets/
+^.quarto$
