@@ -10,6 +10,8 @@ input data and outputs a "data report" as an HTML document. Under the hood, it u
 `skimr::skim()` and `diffdf::diffdf()` functions to create the report. See below for an example on the 
 `nycflights13` dataset.
 
+![](https://github.com/bryantco/datareportR/blob/main/_assets/data_report.gif)
+
 # Install
 
 # Examples
