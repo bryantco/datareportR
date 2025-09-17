@@ -23,7 +23,7 @@ See the below animation for a scroll-through of the data report generated on the
 flights ![dataset](https://github.com/tidyverse/nycflights13) from `nycflights13`. The function call was as follows:
 
 ```r
-render_data_report = function(
+render_data_report(
   df_input = flights,
   save_report_to_disk = TRUE,
   df_input_old = flights_old,
