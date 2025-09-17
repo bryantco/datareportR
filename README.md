@@ -1,6 +1,6 @@
 # Overview
 
-Data often is not perfect. As an analyst, a traditional workflow is combing through 
+Data often is not perfect. A traditional analyst workflow sees one combing through 
 dataset, column subset by column subset, and investigating flaws and inacurracies
 such as outliers and missing values. **datareportR** attempts to simplify this manual process by providing the analyst information about all the columns in a dataset a single glance. 
 
@@ -17,10 +17,22 @@ input data and outputs a "data report" as an HTML document. Under the hood, it u
 remotes::install_github("bryantco/datareportR")
 ```
 
-# Examples
+# Usage
 
 See the below animation for a scroll-through of the data report generated on the 
-flights ![dataset](https://github.com/tidyverse/nycflights13) from `nycflights13`.
+flights ![dataset](https://github.com/tidyverse/nycflights13) from `nycflights13`. The function call was as follows:
+
+```r
+render_data_report = function(
+  df_input = flights,
+  save_report_to_disk = TRUE,
+  df_input_old = flights_old,
+  save_rmd_dir = getwd(),
+  save_html_dir = getwd(),
+  include_skim = TRUE,
+  include_diffdf = TRUE
+)
+```
 
 ![](https://github.com/bryantco/datareportR/blob/main/_assets/data_report.gif)
 
