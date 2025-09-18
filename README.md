@@ -19,14 +19,14 @@ remotes::install_github("bryantco/datareportR")
 
 # Usage
 
-See the below animation for a scroll-through of the data report generated on the 
-flights ![dataset](https://github.com/tidyverse/nycflights13) from `nycflights13`. The function call was as follows:
+See the below screenshots for a the data report generated on the iris dataset, comparing 
+it to a permuted version. The function call was as follows:
 
 ```r
 render_data_report(
-  df_input = flights,
+  df_input = iris,
   save_report_to_disk = TRUE,
-  df_input_old = flights_old,
+  df_input_old = iris_permuted,
   save_rmd_dir = getwd(),
   save_html_dir = getwd(),
   include_skim = TRUE,
