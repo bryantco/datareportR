@@ -4,7 +4,7 @@
 <a href="https://CRAN.R-project.org/package=datareportR"><img src="https://www.r-pkg.org/badges/version/datareportR" class="img-fluid" alt="CRAN version"></a>
 <!-- badges: end -->
 
-# Overview
+## Overview
 
 Data often is not perfect. A traditional analyst workflow sees one combing through 
 dataset, column subset by column subset, and investigating flaws and inacurracies
@@ -15,7 +15,7 @@ input data and outputs a "data report" as an HTML document. Under the hood, it u
 `skimr::skim()` and `diffdf::diffdf()` functions to create the report. See below for an example on the 
 `nycflights13` dataset.
 
-# Install
+## Install
 
 **datareportR** can be installed from this repository:
 
@@ -23,7 +23,7 @@ input data and outputs a "data report" as an HTML document. Under the hood, it u
 remotes::install_github("bryantco/datareportR")
 ```
 
-# Usage
+## Usage
 
 See the below screenshots for a the data report generated on the iris dataset, comparing 
 it to a permuted version. The function call was as follows:
@@ -44,7 +44,7 @@ render_data_report(
 
 ![](https://github.com/bryantco/datareportR/blob/main/_assets/data_report_2.PNG)
 
-# Benchmarking
+## Benchmarking
 
 **datareportR** is intended for use on *medium-sized* data (both in terms of rows
 and columns). For a graph that compares the time to render the report, see below. The
