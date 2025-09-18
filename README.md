@@ -34,7 +34,9 @@ render_data_report(
 )
 ```
 
-![](https://github.com/bryantco/datareportR/blob/main/_assets/data_report.gif)
+![](https://github.com/bryantco/datareportR/blob/main/_assets/data_report_1.png)
+
+![](https://github.com/bryantco/datareportR/blob/main/_assets/data_report_2.png)
 
 # Benchmarking
 
