@@ -1,3 +1,5 @@
+# datareportR
+
 <!-- badges: start -->
 <a href="https://CRAN.R-project.org/package=datareportR"><img src="https://www.r-pkg.org/badges/version/datareportR" class="img-fluid" alt="CRAN version"></a>
 <!-- badges: end -->
