@@ -13,15 +13,7 @@ such as outliers and missing values. **datareportR** attempts to simplify this m
 **datareportR** consists of a small but powerful function, `render_data_report()`, which takes 
 input data and outputs a "data report" as an HTML document. Under the hood, it uses the powerful
 `skimr::skim()` and `diffdf::diffdf()` functions to create the report. See below for an example on the 
-`nycflights13` dataset.
-
-## Install
-
-**datareportR** can be installed from this repository:
-
-```r
-remotes::install_github("bryantco/datareportR")
-```
+`iris` dataset.
 
 ## Usage
 
@@ -44,6 +36,13 @@ render_data_report(
 
 ![](https://github.com/bryantco/datareportR/blob/main/_assets/data_report_2.PNG)
 
+## Install
+
+**datareportR** can be installed from this repository:
+
+```r
+remotes::install_github("bryantco/datareportR")
+```
 ## Benchmarking
 
 **datareportR** is intended for use on *medium-sized* data (both in terms of rows
