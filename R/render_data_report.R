@@ -1,10 +1,10 @@
 #' Title
 #'
 #' @param df_input data.frame or tibble. Input dataset to generate the summary report on.
-#' @param save_report_to_disk boolean. TRUE to save the .Rmd file to disk at the specified 
-#' `save_rmd_dir` directory, FALSE to remove the generated .Rmd file at runtime.
-#' @param save_rmd_dir character. Path to save the .Rmd file to disk.
-#' @param save_html_dir character. Path to save the .html output file to disk.
+#' @param save_rmd_dir character. Path to save the .Rmd file to disk. Defaults to the current
+#' working directory. If NULL, does not save the report to disk.
+#' @param save_html_dir character. Path to save the .html output file to disk. Defaults to the current
+#' working directory.
 #' @param include_skim boolean. TRUE to include the data summary with skimr::skim() in the 
 #' report. FALSE to exclude.
 #' @param include_diffdf boolean. TRUE to include the data diff with diffdf::diffdf() in the report.

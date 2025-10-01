@@ -5,8 +5,7 @@
 \title{Title}
 \usage{
 render_data_report(
-  df_input = NULL,
-  save_report_to_disk = TRUE,
+  df_input,
   df_input_old = NULL,
   save_rmd_dir = getwd(),
   save_html_dir = getwd(),
@@ -17,14 +16,13 @@ render_data_report(
 \arguments{
 \item{df_input}{data.frame or tibble. Input dataset to generate the summary report on.}
 
-\item{save_report_to_disk}{boolean. TRUE to save the .Rmd file to disk at the specified
-\code{save_rmd_dir} directory, FALSE to remove the generated .Rmd file at runtime.}
-
 \item{df_input_old}{data.frame or tibble. Old input dataset to call diffdf::diffdf() on.}
 
-\item{save_rmd_dir}{character. Path to save the .Rmd file to disk.}
+\item{save_rmd_dir}{character. Path to save the .Rmd file to disk. Defaults to the current
+working directory. If NULL, does not save the report to disk.}
 
-\item{save_html_dir}{character. Path to save the .html output file to disk.}
+\item{save_html_dir}{character. Path to save the .html output file to disk. Defaults to the current
+working directory.}
 
 \item{include_skim}{boolean. TRUE to include the data summary with skimr::skim() in the
 report. FALSE to exclude.}
