@@ -24,6 +24,8 @@ render_data_report = function(
   df_input_old = NULL,
   save_rmd_dir = getwd(),
   save_html_dir = getwd(),
+  save_rmd_file = NULL,
+  save_html_file = NULL,
   include_skim = TRUE,
   include_diffdf = TRUE,
   output_format = "html"
@@ -138,10 +140,33 @@ render_data_report = function(
   report_all_code = c(report_header_code, report_body_code)
 
   # Store temp report on disk ----
-  # Throw a warning to the user if the data report already exists
+  # if save_rmd_file is NULL, save using the default "data_report.Rmd" to
+  # save_rmd_dir
   rmd_path = paste0(save_rmd_dir, "/", "data_report.Rmd")
+
+  # if save_rmd_file is a full file path, save using the file path
+  if (!is.null(save_rmd_file)) {
+    # check that the directory exists
+    dir = dirname(save_rmd_file)
+    if (!dir.exists(dir)) { stop("Directory specified in save_rmd_file does not exist. Please create it or update save_rmd_file.") }
+    
+    # check that the directory is consistent with save_rmd_dir
+    if (!is.null(save_rmd_dir)) {
+      stopifnot(dir == save_rmd_dir)
+    }
+
+    # if no file extension, automatically append an extension
+    grep_rmd = "\\.(Rmd)$"
+    if(!grepl(grep_rmd, save_rmd_file)) {
+      save_rmd_file = paste0(save_rmd_file, ".Rmd")
+    }
+
+    rmd_path = save_rmd_file
+  }
+
+  # Throw a warning to the user if the data report already exists
   if (file.exists(rmd_path)) {
-    warning("Existing copy of data_report.Rmd overwritten.")
+    warning("Existing copy of data_report.Rmd being overwritten.")
   }
   writeLines(report_all_code, rmd_path)
 

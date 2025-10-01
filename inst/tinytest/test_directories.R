@@ -10,6 +10,30 @@ render_data_report(
   save_html_dir = getwd()
 )
 
+# Try a custom save_rmd_file path
+render_data_report(
+  df_input = flights,
+  save_rmd_dir = getwd(),
+  save_html_dir = getwd(),
+  save_rmd_file = paste0(getwd(), "/data_report_custom.Rmd")
+)
+
+# Try a custom save_rmd_file path in a directory that doesn't exist
+render_data_report(
+  df_input = flights,
+  save_rmd_dir = getwd(),
+  save_html_dir = getwd(),
+  save_rmd_file = paste0(getwd(), "/fake_dir/data_report_custom.Rmd")
+)
+
+# Try a custom save_rmd_file path without a file extension
+render_data_report(
+  df_input = flights,
+  save_rmd_dir = getwd(),
+  save_html_dir = getwd(),
+  save_rmd_file = paste0(getwd(), "/data_report_custom")
+)
+
 # Try rendering for a directory that doesn't exist
 expect_error(
   render_data_report(
