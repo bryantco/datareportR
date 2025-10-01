@@ -7,16 +7,17 @@ flights = nycflights13::flights
 render_data_report(
   df_input = flights,
   save_rmd_dir = getwd(),
-  save_html_dir = getwd()
+  save_html_dir = getwd(),
+  include_diffdf = FALSE
 )
 
 # Try rendering for a directory that doesn't exist
 expect_error(
   render_data_report(
     df_input = flights,
-    df_input_old = flights_permuted,
     save_rmd_dir = getwd(),
-    save_html_dir = "output/"
+    save_html_dir = "output/",
+    include_diffdf = FALSE
   ),
   pattern = "Directory to save output HTML"
 )

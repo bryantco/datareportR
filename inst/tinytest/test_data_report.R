@@ -8,7 +8,7 @@ datareportR::render_data_report(
   save_rmd_dir = getwd(),
   save_html_dir = getwd(),
   include_skim = TRUE,
-  include_diffdf = TRUE
+  include_diffdf = FALSE
 )
 
 report_rmd_removed = file.remove("data_report.Rmd")

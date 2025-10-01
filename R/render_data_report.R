@@ -20,7 +20,6 @@
 #'
 render_data_report = function(
   df_input,
-  save_report_to_disk = TRUE,
   df_input_old = NULL,
   save_rmd_dir = getwd(),
   save_html_dir = getwd(),
@@ -44,7 +43,7 @@ render_data_report = function(
     stop("Old data to diff not specified. Please update the df_input_old argument to point it to the old dataset or change include_diffdf to FALSE.")
   }
   # Check that directories exist; throw a warning if not
-  if (save_report_to_disk & !dir.exists(save_rmd_dir)) { 
+  if (!dir.exists(save_rmd_dir)) { 
     stop ("Directory to save rmd to does not exist. Please create the directory.") 
   }
 
@@ -137,7 +136,8 @@ render_data_report = function(
     )
   )
 
-  # Save report to disk or delete according to save_to_disk bool ----
+  # Save report to disk or delete ----
+  save_report_to_disk = !is.null(save_rmd_dir)
   if (!save_report_to_disk) {
     report_removed = file.remove(rmd_path)
     stopifnot(report_removed)
