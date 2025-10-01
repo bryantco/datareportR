@@ -8,7 +8,7 @@
 #' @param include_skim boolean. TRUE to include the data summary with skimr::skim() in the 
 #' report. FALSE to exclude.
 #' @param include_diffdf boolean. TRUE to include the data diff with diffdf::diffdf() in the report.
-#' FALSE to exclude.
+#' FALSE to exclude. If df_input_old is not specified, automatically set to FALSE.
 #' @param df_input_old data.frame or tibble. Old input dataset to call diffdf::diffdf() on. 
 #'
 #' @importFrom skimr skim
@@ -28,6 +28,11 @@ render_data_report = function(
 ) {
 
   # Sanity checks ----
+  # Infer include_diffdf as FALSE if no input dataset is specified
+  # Otherwise, that parameter defaults to TRUE, which raises the "Old data to diff not specified"
+  # error below.
+  if (is.null(df_input_old)) { include_diffdf = FALSE }
+
   # Can't have a null df_input
   if (is.null(df_input)) {
     stop("Input dataframe not found. Please update the df_input argument to point it to the data you want to summarize.")

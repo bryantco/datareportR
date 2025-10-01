@@ -28,7 +28,7 @@ working directory.}
 report. FALSE to exclude.}
 
 \item{include_diffdf}{boolean. TRUE to include the data diff with diffdf::diffdf() in the report.
-FALSE to exclude.}
+FALSE to exclude. If df_input_old is not specified, automatically set to FALSE.}
 }
 \value{
 An output RMarkdown report with the data summary.
