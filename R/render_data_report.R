@@ -24,7 +24,8 @@ render_data_report = function(
   save_rmd_dir = getwd(),
   save_html_dir = getwd(),
   include_skim = TRUE,
-  include_diffdf = TRUE
+  include_diffdf = TRUE,
+  output_format = "html"
 ) {
 
   # Sanity checks ----
@@ -47,6 +48,7 @@ render_data_report = function(
   if (is.null(df_input_old) & include_diffdf) {
     stop("Old data to diff not specified. Please update the df_input_old argument to point it to the old dataset or change include_diffdf to FALSE.")
   }
+  
   # Check that directories exist; throw a warning if not
   if (!dir.exists(save_rmd_dir)) { 
     stop ("Directory to save rmd to does not exist. Please create the directory.") 
@@ -58,12 +60,19 @@ render_data_report = function(
   if (!(include_skim | include_diffdf)) { stop("At least one of include_skim and include_diffdf must be specified for a non-empty report. Respecify these parameters.") }
   df_input_name = deparse(substitute(df_input))
 
+  # Output format must be "html" or "pdf"
+  output_format = tolower(output_format)
+  if (!output_format %in% c("html", "pdf")) {
+    stop("Output format not supported. Please specify output_format as 'html' or 'pdf'.")
+  }
+
   # Generate RMarkdown report ----
+  output_format_for_header = paste0(output_format, "_document")
   report_header_code = c(
     "---",
     'title: "Data Summary Report"',
     'date: "`r Sys.Date()`"',
-    "output: html_document",
+    paste0("output: ", output_format_for_header),
     "params:",
     "  df_input: NULL",
     "  df_input_name: NULL",
@@ -91,11 +100,16 @@ render_data_report = function(
   )
 
   if (include_skim) {
+    
+    skim_fun = "skim"
+    # if pdf, remove sparklines
+    if (output_format == "pdf") { skim_fun = "skim_without_charts"}
+    
     report_skimr_code = c(
       "",
       "# Data Overview",
       "```{r}",
-      "skimr::skim(df_input, .data_name = df_input_name)",
+      paste0("skimr::", skim_fun, "(df_input, .data_name = df_input_name)"),
       "```"
     )
   } else {
