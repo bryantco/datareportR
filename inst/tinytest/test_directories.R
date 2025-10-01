@@ -3,11 +3,9 @@ library(datareportR)
 
 # Test that rmd is saved in a directory if the directory exists
 flights = nycflights13::flights
-flights_permuted = datareportR::flights_permuted
 
 render_data_report(
   df_input = flights,
-  save_report_to_disk = TRUE,
   df_input_old = flights_permuted,
   save_rmd_dir = getwd(),
   save_html_dir = getwd()
@@ -17,7 +15,6 @@ render_data_report(
 expect_error(
   render_data_report(
     df_input = flights,
-    save_report_to_disk = TRUE,
     df_input_old = flights_permuted,
     save_rmd_dir = getwd(),
     save_html_dir = "output/"
