@@ -10,7 +10,8 @@
 #' @param include_diffdf boolean. TRUE to include the data diff with diffdf::diffdf() in the report.
 #' FALSE to exclude. If df_input_old is not specified, automatically set to FALSE.
 #' @param df_input_old data.frame or tibble. Old input dataset to call diffdf::diffdf() on. 
-#'
+#' @param output_format character. Output format of the data report. Defaults to "html." So far, only "pdf" and "html"
+#' are supported.
 #' @importFrom skimr skim
 #' @importFrom diffdf diffdf
 #' @importFrom rmarkdown render

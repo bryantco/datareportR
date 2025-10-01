@@ -10,7 +10,8 @@ render_data_report(
   save_rmd_dir = getwd(),
   save_html_dir = getwd(),
   include_skim = TRUE,
-  include_diffdf = TRUE
+  include_diffdf = TRUE,
+  output_format = "html"
 )
 }
 \arguments{
@@ -29,6 +30,9 @@ report. FALSE to exclude.}
 
 \item{include_diffdf}{boolean. TRUE to include the data diff with diffdf::diffdf() in the report.
 FALSE to exclude. If df_input_old is not specified, automatically set to FALSE.}
+
+\item{output_format}{character. Output format of the data report. Defaults to "html." So far, only "pdf" and "html"
+are supported.}
 }
 \value{
 An output RMarkdown report with the data summary.
