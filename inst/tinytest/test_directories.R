@@ -6,7 +6,6 @@ flights = nycflights13::flights
 
 render_data_report(
   df_input = flights,
-  df_input_old = flights_permuted,
   save_rmd_dir = getwd(),
   save_html_dir = getwd()
 )
