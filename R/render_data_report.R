@@ -25,7 +25,7 @@ render_data_report = function(
   save_rmd_dir = getwd(),
   save_report_dir = getwd(),
   save_rmd_file = NULL,
-  save_html_file = NULL,
+  save_report_file = NULL,
   include_skim = TRUE,
   include_diffdf = TRUE,
   output_format = "html"
@@ -150,7 +150,7 @@ render_data_report = function(
     dir = dirname(save_rmd_file)
     if (!dir.exists(dir)) { stop("Directory specified in save_rmd_file does not exist. Please create it or update save_rmd_file.") }
     
-    # check that the directory is consistent with save_rmd_dir
+    # check that the directory is consistent with save_rmd_dir if specified
     if (!is.null(save_rmd_dir)) {
       stopifnot(dir == save_rmd_dir)
     }
@@ -170,10 +170,27 @@ render_data_report = function(
   }
   writeLines(report_all_code, rmd_path)
 
+# perform the same checks for the output report
+output_path = paste0(save_report_dir, "/", "data_report.", output_format)
+if (!is.null(save_report_file)) {
+  # check that the directory exists
+  dir = dirname(save_report_file)
+  if (!dir.exists(dir)) { stop("Directory specified in save_report_file does not exist. Please create it or update save_report_file.") }
+  
+  # check that the directory is consistent with save_report_dir if specified
+  if (!is.null(save_report_dir)) {
+    stopifnot(dir == save_report_dir)
+  }
+  
+  output_path = save_report_file
+  # no need to fix the file extension since rmarkdown::render() will automatically
+  # add one if needed
+}
+
   # Render report ----
   rmarkdown::render(
     input = rmd_path,
-    output_dir = save_report_dir,
+    output_file = output_path,
     params = list(
       df_input = df_input,
       df_input_name = df_input_name,
