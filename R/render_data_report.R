@@ -3,7 +3,7 @@
 #' @param df_input data.frame or tibble. Input dataset to generate the summary report on.
 #' @param save_rmd_dir character. Path to save the .Rmd file to disk. Defaults to the current
 #' working directory. If NULL, does not save the report to disk.
-#' @param save_html_dir character. Path to save the .html output file to disk. Defaults to the current
+#' @param save_report_dir character. Path to save the .html output file to disk. Defaults to the current
 #' working directory.
 #' @param include_skim boolean. TRUE to include the data summary with skimr::skim() in the 
 #' report. FALSE to exclude.
@@ -23,7 +23,7 @@ render_data_report = function(
   df_input,
   df_input_old = NULL,
   save_rmd_dir = getwd(),
-  save_html_dir = getwd(),
+  save_report_dir = getwd(),
   save_rmd_file = NULL,
   save_html_file = NULL,
   include_skim = TRUE,
@@ -57,7 +57,7 @@ render_data_report = function(
     stop ("Directory to save rmd to does not exist. Please create the directory.") 
   }
 
-  if (!dir.exists(save_html_dir)) { stop ("Directory to save output HTML report to does not exist. Please create the directory.")  }
+  if (!dir.exists(save_report_dir)) { stop ("Directory to save output HTML report to does not exist. Please create the directory.")  }
 
   # Check that at least one of include_skim and include_diffdf is TRUE
   if (!(include_skim | include_diffdf)) { stop("At least one of include_skim and include_diffdf must be specified for a non-empty report. Respecify these parameters.") }
@@ -173,7 +173,7 @@ render_data_report = function(
   # Render report ----
   rmarkdown::render(
     input = rmd_path,
-    output_dir = save_html_dir,
+    output_dir = save_report_dir,
     params = list(
       df_input = df_input,
       df_input_name = df_input_name,

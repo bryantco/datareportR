@@ -6,7 +6,7 @@ flights = nycflights13::flights
 datareportR::render_data_report(
   df_input = flights,
   save_rmd_dir = getwd(),
-  save_html_dir = getwd(),
+  save_report_dir = getwd(),
   include_skim = TRUE,
   output_format = "html"
 )

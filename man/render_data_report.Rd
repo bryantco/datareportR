@@ -8,7 +8,9 @@ render_data_report(
   df_input,
   df_input_old = NULL,
   save_rmd_dir = getwd(),
-  save_html_dir = getwd(),
+  save_report_dir = getwd(),
+  save_rmd_file = NULL,
+  save_html_file = NULL,
   include_skim = TRUE,
   include_diffdf = TRUE,
   output_format = "html"
@@ -22,7 +24,7 @@ render_data_report(
 \item{save_rmd_dir}{character. Path to save the .Rmd file to disk. Defaults to the current
 working directory. If NULL, does not save the report to disk.}
 
-\item{save_html_dir}{character. Path to save the .html output file to disk. Defaults to the current
+\item{save_report_dir}{character. Path to save the .html output file to disk. Defaults to the current
 working directory.}
 
 \item{include_skim}{boolean. TRUE to include the data summary with skimr::skim() in the

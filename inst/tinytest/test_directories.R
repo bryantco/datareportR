@@ -7,14 +7,14 @@ flights = nycflights13::flights
 render_data_report(
   df_input = flights,
   save_rmd_dir = getwd(),
-  save_html_dir = getwd()
+  save_report_dir = getwd()
 )
 
 # Try a custom save_rmd_file path
 render_data_report(
   df_input = flights,
   save_rmd_dir = getwd(),
-  save_html_dir = getwd(),
+  save_report_dir = getwd(),
   save_rmd_file = paste0(getwd(), "/data_report_custom.Rmd")
 )
 
@@ -22,7 +22,7 @@ render_data_report(
 render_data_report(
   df_input = flights,
   save_rmd_dir = getwd(),
-  save_html_dir = getwd(),
+  save_report_dir = getwd(),
   save_rmd_file = paste0(getwd(), "/fake_dir/data_report_custom.Rmd")
 )
 
@@ -30,7 +30,7 @@ render_data_report(
 render_data_report(
   df_input = flights,
   save_rmd_dir = getwd(),
-  save_html_dir = getwd(),
+  save_report_dir = getwd(),
   save_rmd_file = paste0(getwd(), "/data_report_custom")
 )
 
@@ -39,7 +39,7 @@ expect_error(
   render_data_report(
     df_input = flights,
     save_rmd_dir = getwd(),
-    save_html_dir = "output/"
+    save_report_dir = "output/"
   ),
   pattern = "Directory to save output HTML"
 )
