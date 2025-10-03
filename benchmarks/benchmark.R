@@ -29,10 +29,9 @@ results = press(
     bench::mark(
       datareportR::render_data_report(
         df_input = dat,
-        save_report_to_disk = FALSE,
         df_input_old = dat_old,
         save_rmd_dir = getwd(),
-        save_html_dir = getwd(),
+        save_report_dir = getwd(),
         include_skim = TRUE,
         include_diffdf = TRUE
       )
