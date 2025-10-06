@@ -2,6 +2,7 @@
 
 <!-- badges: start -->
 <a href="https://CRAN.R-project.org/package=datareportR"><img src="https://www.r-pkg.org/badges/version/datareportR" class="img-fluid" alt="CRAN version"></a>
+<a href="https://bryantco.r-universe.dev"><img src="https://bryantco.r-universe.dev/badges/datareportR" class="img-fluid" alt="R-universe"></a>
 <!-- badges: end -->
 
 ## Overview
