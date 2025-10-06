@@ -21,15 +21,22 @@ render_data_report(
 
 \item{df_input_old}{data.frame or tibble. Old input dataset to call diffdf::diffdf() on.}
 
-\item{save_rmd_dir}{character. Path to save the .Rmd file to disk. Defaults to the current
+\item{save_rmd_dir}{character. Path to save the .Rmd file to. Defaults to the current
 working directory. If NULL, does not save the report to disk.}
 
-\item{save_report_dir}{character. Path to save the .html output file to disk. Defaults to the current
+\item{save_report_dir}{character. Path to save the report to. Defaults to the current
 working directory.}
 
-\item{save_rmd_file}{character. Can be either a file name (e.g., "data_report") or a file path. If
-a file path is specified, it must be consistent with save_rmd_dir, if save_rmd_dir is specified. If
-there is no file extension in the file path,}
+\item{save_rmd_file}{character. Path to save the .Rmd file to. Can be either a
+file name (e.g., "data_report") or a file path. If a file path is specified,
+it must be consistent with save_rmd_dir, if save_rmd_dir is specified. If
+there is no file extension in the file path, automatically appends the .Rmd
+extension.}
+
+\item{save_report_file}{character. Path to save the report to. Can be either a
+file name (e.g., "data_report") or a file path. If a file path is specified,
+it must be consistent with save_report_dir, if save_report_dir is specified. If
+there is no file extension in the file path, automatically appends an extension.}
 
 \item{include_skim}{boolean. TRUE to include the data summary with skimr::skim() in the
 report. FALSE to exclude.}
