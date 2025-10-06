@@ -11,7 +11,7 @@ dataset, column subset by column subset, and investigating flaws and inacurracie
 such as outliers and missing values. **datareportR** attempts to simplify this manual process by providing the analyst information about all the columns in a dataset a single glance. 
 
 **datareportR** consists of a small but powerful function, `render_data_report()`, which takes 
-input data and outputs a "data report" as an HTML document. Under the hood, it uses the powerful
+input data and outputs a "data report" as a pdf or HTML document. Under the hood, it uses the powerful
 `skimr::skim()` and `diffdf::diffdf()` functions to create the report. See below for an example on the 
 `iris` dataset.
 
@@ -23,12 +23,12 @@ it to a permuted version. The function call was as follows:
 ```r
 render_data_report(
   df_input = iris,
-  save_report_to_disk = TRUE,
   df_input_old = iris_permuted,
   save_rmd_dir = getwd(),
-  save_html_dir = getwd(),
+  save_report_dir = getwd(),
   include_skim = TRUE,
-  include_diffdf = TRUE
+  include_diffdf = TRUE,
+  output_format = "html"
 )
 ```
 
@@ -50,5 +50,9 @@ and columns). For a graph that compares the time to render the report, see below
 x-axis is number of rows (1,000, 10,000, and 100,000), and the colors represent the 
 numer of features (columns). On average, across a small set of 10 runs, it took a maximum
 overall of nearly 2 minutes to render the report for a dataset with 100,000 rows and 300 features.
+
+Benchmarks were performed on my personal machine, which has 32 GB of RAM. These 
+benchmarks are *suggestive*, but the time  to run `datareportR` on your own computer might
+be different.
 
 ![](https://github.com/bryantco/datareportR/blob/main/_assets/benchmark_results.png)
