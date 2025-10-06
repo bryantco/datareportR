@@ -56,8 +56,8 @@ render_data_report = function(
   }
   
   # Check that directories exist; throw a warning if not
-  if (!dir.exists(save_rmd_dir)) { 
-    stop ("Directory to save rmd to does not exist. Please create the directory.") 
+  if (!is.null(save_rmd_dir)) {
+    if(!dir.exists(save_rmd_dir)) { stop ("Directory to save rmd to does not exist. Please create the directory.")  }
   }
 
   if (!dir.exists(save_report_dir)) { stop ("Directory to save output report to does not exist. Please create the directory.")  }
@@ -141,11 +141,15 @@ render_data_report = function(
   report_all_code = c(report_header_code, report_body_code)
 
   # Store temp report on disk ----
-  # if save_rmd_file is NULL, save using the default "data_report.Rmd" to
-  # save_rmd_dir
-  rmd_path = paste0(save_rmd_dir, "/", "data_report.Rmd")
+  # if save_rmd_dir is NULL, create temp directory for the Rmd as the current
+  # directory; otherwise, use save_rmd_dir
+  if (is.null(save_rmd_dir)) { 
+    rmd_path = paste0(getwd(), "/", "data_report.Rmd")
+  } else {
+    rmd_path = paste0(save_rmd_dir, "/", "data_report.Rmd")
+  }
 
-  # if save_rmd_file is a full file path, save using the file path
+  # if save_rmd_file is a full file path, prioritize the file path
   if (!is.null(save_rmd_file)) {
     # check that the directory exists
     dir = dirname(save_rmd_file)
@@ -153,7 +157,7 @@ render_data_report = function(
     
     # check that the directory is consistent with save_rmd_dir if specified
     if (!is.null(save_rmd_dir)) {
-      stopifnot(dir == save_rmd_dir)
+      stopifnot(dir == dirname(rmd_path))
     }
 
     # if no file extension, automatically append an extension
@@ -169,10 +173,16 @@ render_data_report = function(
   if (file.exists(rmd_path)) {
     warning("Existing copy of data_report.Rmd being overwritten.")
   }
+
   writeLines(report_all_code, rmd_path)
 
 # perform the same checks for the output report
-output_path = paste0(save_report_dir, "/", "data_report.", output_format)
+if (is.null(save_report_dir)) { 
+  output_path = paste0(getwd(), "/", "data_report.", output_format)
+} else {
+  output_path = paste0(save_report_dir, "/", "data_report.", output_format)
+}
+  
 if (!is.null(save_report_file)) {
   # check that the directory exists
   dir = dirname(save_report_file)
@@ -180,7 +190,7 @@ if (!is.null(save_report_file)) {
   
   # check that the directory is consistent with save_report_dir if specified
   if (!is.null(save_report_dir)) {
-    stopifnot(dir == save_report_dir)
+    stopifnot(dir == dirname(output_path))
   }
   
   output_path = save_report_file

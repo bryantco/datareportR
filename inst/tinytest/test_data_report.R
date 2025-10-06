@@ -14,5 +14,5 @@ datareportR::render_data_report(
 report_rmd_removed = file.remove("data_report.Rmd")
 expect_true(report_rmd_removed)
 
-report_html_removed = file.remove("../../output/data_report.html")
+report_html_removed = file.remove("data_report.html")
 expect_true(report_html_removed)
