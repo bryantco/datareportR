@@ -21,7 +21,7 @@ expect_error(
     save_rmd_dir = getwd(),
     save_report_dir = "output/"
   ),
-  pattern = "Directory to save output HTML"
+  pattern = "Directory to save output"
 )
 
 # Custom checks for saving the Rmd ----
