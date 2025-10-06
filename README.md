@@ -43,7 +43,7 @@ render_data_report(
 **datareportR** can be installed from this repository:
 
 ```r
-remotes::install_github("bryantco/datareportR")
+install.packages("datareportR", repos = "https://bryantco.r-universe.dev")
 ```
 ## Benchmarking
 
