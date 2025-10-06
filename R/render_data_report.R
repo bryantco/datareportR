@@ -47,7 +47,7 @@ render_data_report = function(
 
   # Either include_skim or include_diffdf must be TRUE
   if (!include_skim & !include_diffdf) {
-    stop("Either include_skim or include_diffdf must be TRUE. Update these parameters.")
+    stop("Either include_skim or include_diffdf must be TRUE. Please re-specify these parameters.")
   }
 
   # Old df must be specified if include_skim = TRUE
@@ -60,10 +60,8 @@ render_data_report = function(
     stop ("Directory to save rmd to does not exist. Please create the directory.") 
   }
 
-  if (!dir.exists(save_report_dir)) { stop ("Directory to save output HTML report to does not exist. Please create the directory.")  }
+  if (!dir.exists(save_report_dir)) { stop ("Directory to save output report to does not exist. Please create the directory.")  }
 
-  # Check that at least one of include_skim and include_diffdf is TRUE
-  if (!(include_skim | include_diffdf)) { stop("At least one of include_skim and include_diffdf must be specified for a non-empty report. Respecify these parameters.") }
   df_input_name = deparse(substitute(df_input))
 
   # Output format must be "html" or "pdf"
