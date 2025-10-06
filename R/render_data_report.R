@@ -1,15 +1,18 @@
 #' Title
 #'
 #' @param df_input data.frame or tibble. Input dataset to generate the summary report on.
+#' @param df_input_old data.frame or tibble. Old input dataset to call diffdf::diffdf() on. 
 #' @param save_rmd_dir character. Path to save the .Rmd file to disk. Defaults to the current
 #' working directory. If NULL, does not save the report to disk.
 #' @param save_report_dir character. Path to save the .html output file to disk. Defaults to the current
 #' working directory.
+#' @param save_rmd_file character. Can be either a file name (e.g., "data_report") or a file path. If 
+#' a file path is specified, it must be consistent with save_rmd_dir, if save_rmd_dir is specified. If 
+#' there is no file extension in the file path,
 #' @param include_skim boolean. TRUE to include the data summary with skimr::skim() in the 
 #' report. FALSE to exclude.
 #' @param include_diffdf boolean. TRUE to include the data diff with diffdf::diffdf() in the report.
 #' FALSE to exclude. If df_input_old is not specified, automatically set to FALSE.
-#' @param df_input_old data.frame or tibble. Old input dataset to call diffdf::diffdf() on. 
 #' @param output_format character. Output format of the data report. Defaults to "html." So far, only "pdf" and "html"
 #' are supported.
 #' @importFrom skimr skim

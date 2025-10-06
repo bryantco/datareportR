@@ -10,7 +10,7 @@ render_data_report(
   save_rmd_dir = getwd(),
   save_report_dir = getwd(),
   save_rmd_file = NULL,
-  save_html_file = NULL,
+  save_report_file = NULL,
   include_skim = TRUE,
   include_diffdf = TRUE,
   output_format = "html"
@@ -26,6 +26,10 @@ working directory. If NULL, does not save the report to disk.}
 
 \item{save_report_dir}{character. Path to save the .html output file to disk. Defaults to the current
 working directory.}
+
+\item{save_rmd_file}{character. Can be either a file name (e.g., "data_report") or a file path. If
+a file path is specified, it must be consistent with save_rmd_dir, if save_rmd_dir is specified. If
+there is no file extension in the file path,}
 
 \item{include_skim}{boolean. TRUE to include the data summary with skimr::skim() in the
 report. FALSE to exclude.}
