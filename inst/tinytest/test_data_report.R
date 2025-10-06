@@ -1,10 +1,10 @@
 library(tinytest)
 library(datareportR)
 
-flights = nycflights13::flights
+iris = datasets::iris
 
 datareportR::render_data_report(
-  df_input = flights,
+  df_input = iris,
   save_rmd_dir = getwd(),
   save_report_dir = getwd(),
   include_skim = TRUE,
@@ -14,5 +14,5 @@ datareportR::render_data_report(
 report_rmd_removed = file.remove("data_report.Rmd")
 expect_true(report_rmd_removed)
 
-# report_html_removed = file.remove("../../output/data_report.html")
-# expect_true(report_html_removed)
+report_html_removed = file.remove("../../output/data_report.html")
+expect_true(report_html_removed)

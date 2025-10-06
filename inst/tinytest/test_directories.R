@@ -3,10 +3,10 @@ library(datareportR)
 
 # Basic checks ----
 # Test that rmd is saved in a directory if the directory exists
-flights = nycflights13::flights
+iris = datasets::iris
 
 render_data_report(
-  df_input = flights,
+  df_input = iris,
   save_rmd_dir = getwd(),
   save_report_dir = getwd()
 )
@@ -16,7 +16,7 @@ expect_true(file.exists("data_report.Rmd"))
 # Try rendering for a directory that doesn't exist
 expect_error(
   render_data_report(
-    df_input = flights,
+    df_input = iris,
     save_rmd_dir = getwd(),
     save_report_dir = "output/"
   ),
@@ -26,7 +26,7 @@ expect_error(
 # Custom checks for saving the Rmd ----
 # Try a custom save_rmd_file path
 render_data_report(
-  df_input = flights,
+  df_input = iris,
   save_rmd_dir = getwd(),
   save_report_dir = getwd(),
   save_rmd_file = paste0(getwd(), "/data_report_custom.Rmd")
@@ -38,7 +38,7 @@ file.remove("data_report_custom.Rmd")
 # Try a custom save_rmd_file path in a directory that doesn't exist
 expect_error(
   render_data_report(
-  df_input = flights,
+  df_input = iris,
   save_rmd_dir = getwd(),
   save_report_dir = getwd(),
   save_rmd_file = paste0(getwd(), "/fake_dir/data_report_custom.Rmd")
@@ -47,7 +47,7 @@ expect_error(
 
 # Try a custom save_rmd_file path without a file extension
 render_data_report(
-  df_input = flights,
+  df_input = iris,
   save_rmd_dir = getwd(),
   save_report_dir = getwd(),
   save_rmd_file = paste0(getwd(), "/data_report_custom")
@@ -58,7 +58,7 @@ expect_true(file.exists("data_report_custom.Rmd"))
 # Custom checks for saving the report ----
 # Try a custom save_report_file path
 render_data_report(
-  df_input = flights,
+  df_input = iris,
   save_rmd_dir = getwd(),
   save_report_dir = getwd(),
   save_report_file = paste0(getwd(), "/data_report_custom2.html")
@@ -69,7 +69,7 @@ expect_true(file.exists("data_report_custom2.html"))
 # Try a custom save_report_file path in a directory that doesn't exist
 expect_error(
   render_data_report(
-  df_input = flights,
+  df_input = iris,
   save_rmd_dir = getwd(),
   save_report_dir = getwd(),
   save_rmd_file = paste0(getwd(), "/fake_dir/data_report_custom.html")
@@ -78,7 +78,7 @@ expect_error(
 
 # Try a custom save_report_file path without a file extension
 render_data_report(
-  df_input = flights,
+  df_input = iris,
   save_report_file = paste0(getwd(), "/data_report")
 )
 

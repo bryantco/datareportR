@@ -17,7 +17,8 @@ Depends:
     R (>= 3.5)
 LazyData: true
 Suggests: 
-    tinytest
+    tinytest,
+    datasets
 Imports: 
     diffdf,
     rmarkdown,
