@@ -4,6 +4,7 @@
 ^\.github$
 ^LICENSE\.md$
 ^benchmarks/
+^output/
 SCRATCH/
 ^_assets/
 ^.quarto$

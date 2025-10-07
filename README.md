@@ -40,7 +40,7 @@ render_data_report(
 
 ## Install
 
-**datareportR** can be installed from this repository:
+**datareportR** can be installed from my r-universe:
 
 ```r
 install.packages("datareportR", repos = "https://bryantco.r-universe.dev")
@@ -52,6 +52,8 @@ and columns). For a graph that compares the time to render the report, see below
 x-axis is number of rows (1,000, 10,000, and 100,000), and the colors represent the 
 numer of features (columns). On average, across a small set of 10 runs, it took a maximum
 overall of nearly 2 minutes to render the report for a dataset with 100,000 rows and 300 features.
+
+In my personal use, I have used the package, with no issues, to create a data report for a dataset topping out at 85 million rows.
 
 Benchmarks were performed on my personal machine, which has 32 GB of RAM. These 
 benchmarks are *suggestive*, but the time  to run `datareportR` on your own computer might
