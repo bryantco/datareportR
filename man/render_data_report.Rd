@@ -7,8 +7,8 @@
 render_data_report(
   df_input,
   df_input_old = NULL,
-  save_rmd_dir = getwd(),
-  save_report_dir = getwd(),
+  save_rmd_dir = NULL,
+  save_report_dir = NULL,
   save_rmd_file = NULL,
   save_report_file = NULL,
   include_skim = TRUE,

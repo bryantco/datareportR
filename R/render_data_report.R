@@ -31,8 +31,8 @@
 render_data_report = function(
   df_input,
   df_input_old = NULL,
-  save_rmd_dir = getwd(),
-  save_report_dir = getwd(),
+  save_rmd_dir = NULL,
+  save_report_dir = NULL,
   save_rmd_file = NULL,
   save_report_file = NULL,
   include_skim = TRUE,
@@ -62,11 +62,18 @@ render_data_report = function(
   }
   
   # Check that directories exist; throw a warning if not
+  # One of save_report_dir and save_report_file must be specified
+  if (is.null(save_report_dir) & is.null(save_report_file)) {
+    stop("At least one of save_report_dir and save_report_file must be specified. Please check these arguments.")
+  }
+
   if (!is.null(save_rmd_dir)) {
     if(!dir.exists(save_rmd_dir)) { stop ("Directory to save rmd to does not exist. Please create the directory.")  }
   }
 
-  if (!dir.exists(save_report_dir)) { stop ("Directory to save output report to does not exist. Please create the directory.")  }
+  if (!is.null(save_report_dir)) {
+    if (!dir.exists(save_report_dir)) { stop ("Directory to save output report to does not exist. Please create the directory.")  }
+  }
 
   df_input_name = deparse(substitute(df_input))
 
