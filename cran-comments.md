@@ -9,10 +9,10 @@ e.g. `skim` --> 'skim', etc...
 - [x] Please add () behind all function names in the description texts
 (DESCRIPTION file) and omit the quotes. e.g: --> diffdf()
 
-- [ ] Please add small executable examples in your Rd-files to illustrate the
+- [x] Please add small executable examples in your Rd-files to illustrate the
 use of the exported function but also enable automatic testing.
 
-- [ ] Please ensure that your functions do not write by default or in your
+- [x] Please ensure that your functions do not write by default or in your
 examples/vignettes/tests in the user's home filespace (including the
 package directory and getwd()). This is not allowed by CRAN policies.
 Please omit any default path in writing functions. In your
