@@ -2,7 +2,7 @@
 % Please edit documentation in R/render_data_report.R
 \name{render_data_report}
 \alias{render_data_report}
-\title{Title}
+\title{Generate a fast data report}
 \usage{
 render_data_report(
   df_input,
@@ -51,5 +51,19 @@ are supported.}
 An output RMarkdown report with the data summary.
 }
 \description{
-Title
+Generate a fast data report
+}
+\examples{
+set.seed(12345)
+iris = datasets::iris
+iris_permuted = iris
+iris_permuted$Species <- sample(iris$Species)
+render_data_report(
+  df_input = iris,
+  df_input_old = iris_permuted,
+  save_rmd_dir = tempdir(),
+  save_report_dir = tempdir(),
+  include_skim = TRUE,
+  include_diffdf = TRUE
+)
 }

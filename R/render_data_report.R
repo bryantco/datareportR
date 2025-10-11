@@ -1,4 +1,4 @@
-#' Title
+#' Generate a fast data report
 #'
 #' @param df_input data.frame or tibble. Input dataset to generate the summary report on.
 #' @param df_input_old data.frame or tibble. Old input dataset to call diffdf::diffdf() on. 
@@ -27,7 +27,20 @@
 #'
 #' @returns An output RMarkdown report with the data summary.
 #' @export
-#'
+#' @examples
+#' set.seed(12345)
+#' iris = datasets::iris
+#' iris_permuted = iris
+#' iris_permuted$Species <- sample(iris$Species)
+#' render_data_report(
+#'   df_input = iris,
+#'   df_input_old = iris_permuted,
+#'   save_rmd_dir = tempdir(),
+#'   save_report_dir = tempdir(),
+#'   include_skim = TRUE,
+#'   include_diffdf = TRUE
+#' )
+
 render_data_report = function(
   df_input,
   df_input_old = NULL,
