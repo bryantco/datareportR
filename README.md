@@ -40,7 +40,13 @@ render_data_report(
 
 ## Install
 
-**datareportR** can be installed from my r-universe:
+**datareportR** can be installed from CRAN: 
+
+```r
+install.packages("datareportR)
+```
+
+You can also install the dev version from my r-universe:
 
 ```r
 install.packages("datareportR", repos = "https://bryantco.r-universe.dev")
