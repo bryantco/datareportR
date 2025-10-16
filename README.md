@@ -43,7 +43,7 @@ render_data_report(
 **datareportR** can be installed from CRAN: 
 
 ```r
-install.packages("datareportR")
+install.packages(datareportR)
 ```
 
 You can also install the dev version from my r-universe:
