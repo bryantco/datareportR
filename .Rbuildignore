@@ -9,3 +9,5 @@ SCRATCH/
 ^_assets/
 ^.quarto$
 ^cran-comments.md$
+^tests/
+^inst/
