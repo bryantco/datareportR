@@ -1,6 +1,6 @@
 Package: datareportR
 Title: Fast Data Summary Reports
-Version: 0.1
+Version: 0.1.1
 Authors@R: 
     person("Bryant", "Cong", , "bryant.bcp@gmail.com", role = c("aut", "cre"))
 Description: Generates an RMarkdown data report with two components: 
