@@ -14,7 +14,8 @@ Depends:
 LazyData: true
 Suggests: 
     tinytest,
-    datasets
+    datasets,
+    knitr
 Imports: 
     diffdf,
     rmarkdown,
