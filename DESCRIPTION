@@ -21,3 +21,4 @@ Imports:
     rmarkdown,
     skimr
 LazyDataCompression: gzip
+VignetteBuilder: knitr
