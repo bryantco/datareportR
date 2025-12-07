@@ -1,13 +1,13 @@
 ---
-title: "intro"
+title: "Introduction to datareportR"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{intro}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Introduction to datareportR}
+  %\VignetteEngine{rmarkdown::html_vignette}
   %\VignetteEncoding{UTF-8}
 ---
 
 
 ```{r setup}
-library(datareportR)
+print("hello")
 ```
