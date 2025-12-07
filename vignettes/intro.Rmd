@@ -8,6 +8,12 @@ vignette: >
 ---
 
 
-```{r setup}
-print("hello")
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
 ```
+
+```{r, setup}
+library(datareportR)
+```
+
+# Rendering the data report
