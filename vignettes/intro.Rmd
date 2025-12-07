@@ -3,7 +3,7 @@ title: "Introduction to datareportR"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction to datareportR}
-  %\VignetteEngine{rmarkdown::html_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 

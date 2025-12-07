@@ -10,4 +10,6 @@ SCRATCH/
 ^.quarto$
 ^cran-comments.md$
 ^tests/
-^inst/
+inst/tinytest/
+^doc$
+^Meta$

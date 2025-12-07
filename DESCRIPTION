@@ -20,5 +20,5 @@ Imports:
     diffdf,
     rmarkdown,
     skimr
-LazyDataCompression: gzip
 VignetteBuilder: knitr
+LazyDataCompression: gzip
