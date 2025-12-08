@@ -17,3 +17,17 @@ library(datareportR)
 ```
 
 # Rendering the data report
+
+**datareportR** consists of a small but powerful function, render_data_report(), which takes input data and outputs a "data report" as a pdf or HTML document. The generated report allows an analyst to:
+
+1. **View** summary statistics on the entire dataset, such as the mean and quartiles of numeric variables, and number of unique values for categorical variables.
+
+2. **Compare** the data with an old version and to see a printout of differences.
+
+Both of these functions are explained in more detail below.
+
+## Viewing summary statistics
+
+## Comparing the data
+
+# Save options
