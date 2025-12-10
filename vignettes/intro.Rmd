@@ -28,6 +28,18 @@ Both of these functions are explained in more detail below.
 
 ## Viewing summary statistics
 
+datareportR can generate a view of your data that summarizes numerical and categorical columns (e.g., quantiles, mean, and standard deviation for numeric columns and category frequency for categorical columns), as well as presenting key metadata associated with the dataset, such as number of rows, number of columns, and number of numeric/categorical columns. Under the hood, it uses the powerful `skim::skimr()` function.
+
+A sample call on the `iris` dataset is as follows and renders the following output:
+
+```{r, eval=FALSE}
+iris = datasets::iris
+render_data_report(df_input = iris, save_report_dir = getwd())
+```
+
+![](../_assets/data_report_1.PNG)
+
+
 ## Comparing the data
 
 # Save options
