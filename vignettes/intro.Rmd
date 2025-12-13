@@ -34,7 +34,7 @@ A sample call on the `iris` dataset is as follows and renders the following outp
 
 ```{r, eval=FALSE}
 iris = datasets::iris
-render_data_report(df_input = iris, save_report_dir = tempdir())
+datareportR::render_data_report(df_input = iris, save_report_dir = tempdir())
 ```
 
 ![](../_assets/data_report_1.PNG)
@@ -57,9 +57,42 @@ iris_permuted = iris
 # Randomly switch the order of the Species column
 iris_permuted$Species <- sample(iris$Species)
 
-render_data_report(df_input = iris, df_input_old = iris_permuted, save_report_dir = tempdir())
+datareportR::render_data_report(
+  df_input = iris, 
+  df_input_old = iris_permuted, 
+  save_report_dir = tempdir()
+)
 ```
 
 ![](../_assets/data_report_2.PNG)
+
+## Only including one section
+
+By default, both the data overview and data comparison sections of the report are included.
+You can choose to not include one section by specifying `include_skim = FALSE` or `include_diffdf = FALSE` in the function all. Note that you cannot set both options to be `FALSE`'; datareportR will complain and throw an error if so.
+
+For example, to disable the data comparison section, use the following function call:
+
+```{r, eval=FALSE}
+datareportR::render_data_report(
+  df_input = iris, 
+  save_report_dir = tempdir(),
+  include_diffdf = FALSE
+)
+```
+
+
+## Output format options
+
+Currently supported output formats for the report are HTML and pdf. `output_format` in the function
+call must be specified as "html" (the default) or "pdf". To save the report as a pdf, for example, use this following function call:
+
+```{r, eval=FALSE}
+datareportR::render_data_report(
+  df_input = iris, 
+  save_report_dir = tempdir(),
+  output_format = "pdf"
+)
+```
 
 # Save options
