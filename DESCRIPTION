@@ -19,6 +19,7 @@ Suggests:
 Imports: 
     diffdf,
     rmarkdown,
-    skimr
+    skimr,
+    rlang
 VignetteBuilder: knitr
 LazyDataCompression: gzip
