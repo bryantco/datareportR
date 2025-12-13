@@ -96,3 +96,46 @@ datareportR::render_data_report(
 ```
 
 # Save options
+
+datareportR allows you to control the save location for (a) the raw data report markdown file and (b) the final data report. These are specified via the `save_rmd_dir`/`save_rmd_file` and `save_report_dir`/`save_report_file` arguments, respectively. By default, all arguments are configured to save the Markdown file and output report in the current working directory.
+
+## Saving the raw markdown file
+
+If you'd like to save the underlying RMarkdown file for the data report, specify a `save_rmd_dir`. THis argument accepts the following: 
+
+1. `NULL`: the underlying file will not be saved to disk.
+
+2. Folder path: e.g., `output/`: the underlying file will be saved to that folder path.
+
+Similarly, `save_rmd_file` accepts a full file path with .Rmd extension: e.g., `output/data_report.Rmd`. In this case, `render_data_report()` will save the underlying RMarkdown file to the directory in the file name. This option allows you to change the name of the `.Rmd` file saved. A .Rmd extension will be appended automatically if it is not detected.
+
+You can specify both `save_rmd_dir` and `save_rmd_file`, but they must be consistent with each other (i.e., have the same folder path). datareportR will complain and throw an error otherwise.
+
+## Saving the report
+
+Similarly, `save_report_dir` accepts the following:
+
+1. `NULL`: the data report will be saved in the current working directory.
+
+2. Folder path: the report will be saved to that folder.
+
+Specify `save_report_file` as a full file path e.g., `output/data_report.html`, to save the output report to that file.A .html or .pdf extension will be appended automatically if it is not detected.  This option allows you to change the name of the saved report.
+
+## Example
+
+For instance, to save the data report RMarkdown file in the `output` directory and the report itself as `iris_report.html` in the `output` directory, use the following function call:
+
+```{r, eval=FALSE}
+datareportR::render_data_report(
+  df_input = iris,
+  save_rmd_dir = "output/",
+  save_report_file = "output/iris_report.html"
+)
+```
+
+
+## Errors
+
+Note that datareportR will complain if any directories it is being asked to save to do not exist.
+
+
