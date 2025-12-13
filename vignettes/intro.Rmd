@@ -34,12 +34,32 @@ A sample call on the `iris` dataset is as follows and renders the following outp
 
 ```{r, eval=FALSE}
 iris = datasets::iris
-render_data_report(df_input = iris, save_report_dir = getwd())
+render_data_report(df_input = iris, save_report_dir = tempdir())
 ```
 
 ![](../_assets/data_report_1.PNG)
 
 
 ## Comparing the data
+
+datareportR also allows you to compare an input dataset with another dataset and to 
+inspect the differences. This provides you a readout of (a) columns with differing values, along
+with the number of differing values, and (b) the first 10 rows of differences for each column.Under the hood, this uses the `diffdf::diffdf()` function.
+
+Below is a sample call on the `iris` dataset and comparing it to a permuted version:
+
+```{r, eval=FALSE}
+set.seed(12345)
+
+iris = datasets::iris
+iris_permuted = iris
+
+# Randomly switch the order of the Species column
+iris_permuted$Species <- sample(iris$Species)
+
+render_data_report(df_input = iris, df_input_old = iris_permuted, save_report_dir = tempdir())
+```
+
+![](../_assets/data_report_2.PNG)
 
 # Save options
