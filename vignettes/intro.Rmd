@@ -119,7 +119,7 @@ Similarly, `save_report_dir` accepts the following:
 
 2. Folder path: the report will be saved to that folder.
 
-Specify `save_report_file` as a full file path e.g., `output/data_report.html`, to save the output report to that file.A .html or .pdf extension will be appended automatically if it is not detected.  This option allows you to change the name of the saved report.
+Specify `save_report_file` as a full file path e.g., `output/data_report.html`, to save the output report to that file. A .html or .pdf extension will be appended automatically if it is not detected.  This option allows you to change the name of the saved report.
 
 ## Example
 
