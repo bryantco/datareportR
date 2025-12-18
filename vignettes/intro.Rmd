@@ -69,7 +69,7 @@ datareportR::render_data_report(
 ## Only including one section
 
 By default, both the data overview and data comparison sections of the report are included.
-You can choose to not include one section by specifying `include_skim = FALSE` or `include_diffdf = FALSE` in the function all. Note that you cannot set both options to be `FALSE`'; datareportR will complain and throw an error if so.
+You can choose to not include one section by specifying `include_skim = FALSE` or `include_diffdf = FALSE` in the function all. Note that you cannot set both options to be `FALSE`; datareportR will complain and throw an error if so.
 
 For example, to disable the data comparison section, use the following function call:
 
@@ -101,7 +101,7 @@ datareportR allows you to control the save location for (a) the raw data report 
 
 ## Saving the raw markdown file
 
-If you'd like to save the underlying RMarkdown file for the data report, specify a `save_rmd_dir`. THis argument accepts the following: 
+If you'd like to save the underlying RMarkdown file for the data report, specify a `save_rmd_dir`. This argument accepts the following: 
 
 1. `NULL`: the underlying file will not be saved to disk.
 
@@ -119,7 +119,7 @@ Similarly, `save_report_dir` accepts the following:
 
 2. Folder path: the report will be saved to that folder.
 
-Specify `save_report_file` as a full file path e.g., `output/data_report.html`, to save the output report to that file.A .html or .pdf extension will be appended automatically if it is not detected.  This option allows you to change the name of the saved report.
+Specify `save_report_file` as a full file path e.g., `output/data_report.html`, to save the output report to that file. A .html or .pdf extension will be appended automatically if it is not detected.  This option allows you to change the name of the saved report.
 
 ## Example
 
