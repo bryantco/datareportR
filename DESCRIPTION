@@ -14,9 +14,12 @@ Depends:
 LazyData: true
 Suggests: 
     tinytest,
-    datasets
+    datasets,
+    knitr
 Imports: 
     diffdf,
     rmarkdown,
-    skimr
+    skimr,
+    rlang
+VignetteBuilder: knitr
 LazyDataCompression: gzip
