@@ -1,10 +1,11 @@
 Package: datareportR
 Title: Fast Data Summary Reports
 Version: 0.1.1
-Authors@R: c(
-    person("Bryant", "Cong", , "bryant.bcp@gmail.com", role = c("aut", "cre")),
-    person("Alex", "Gordon", , "Alex@AlexNGordon.com", role = c("aut"))
-)
+Authors@R: 
+    c(
+        person("Bryant", "Cong", , "bryant.bcp@gmail.com", role = c("aut", "cre")),
+        person("Alex", "Gordon", "Alex@AlexNGordon.com", role = "aut")
+    )
 Description: Generates an RMarkdown data report with two components: 
    a summary of an input dataset and a diff of the dataset relative to an old version.
 License: MIT + file LICENSE
